@@ -42,6 +42,10 @@ public class Bullet extends Actor
         if(collisions == 4){
             world.removeObject(this);
         }
+        
+        
     }
+    
+    
     
 }
