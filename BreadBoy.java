@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.lang.Math;
 /**
  * Write a description of class BreadBoy here.
  * 
@@ -16,9 +16,20 @@ public class BreadBoy extends Actor
     GreenfootImage BreadBoyImage = new GreenfootImage("images/BreadBoyIdle.png");
     public void act()
     {
-        BreadBoyImage.scale(300,300);
+        BreadBoyImage.scale(50,50);
         
         setImage(BreadBoyImage);
+        changeOrientation();
         
+    }
+    
+    public void changeOrientation(){
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if(mouse != null){
+            int x = mouse.getX();
+            int y = mouse.getY();
+            
+            turnTowards(x,y);
+        }
     }
 }
