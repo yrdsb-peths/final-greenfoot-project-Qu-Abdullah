@@ -24,7 +24,7 @@ public class Ghost extends Actor
         ghostLeft.mirrorVertically();
         ghostLeft.mirrorHorizontally();
         
-        ghostRight.mirrorVertically();
+        ghostRight.mirrorHorizontally();
         
         setImage(ghostLeft);
         
