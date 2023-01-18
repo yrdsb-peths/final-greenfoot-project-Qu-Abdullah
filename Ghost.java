@@ -13,13 +13,12 @@ public class Ghost extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    GreenfootImage ghostRight = new GreenfootImage("images/Ghost.png");
-    Greenfoot
+    GreenfootImage ghostLeft = new GreenfootImage("images/Ghost.png");
     
     public Ghost(){
-        ghostRight.scale(75,75);
-        ghostRight.mirrorHorizontally();
-        setImage(ghostRight);
+        ghostLeft.scale(75,75);
+        ghostLeft.mirrorHorizontally();
+        setImage(ghostLeft);
         
     }
     
@@ -46,6 +45,7 @@ public class Ghost extends Actor
             y = player.getY();
             
             turnTowards(x,y);
+            move(2);
             
         }
         
