@@ -14,11 +14,18 @@ public class Ghost extends Actor
      */
     
     GreenfootImage ghostLeft = new GreenfootImage("images/Ghost.png");
+    GreenfootImage ghostRight = new GreenfootImage("images/Ghost.png");
+    
     
     public Ghost(){
         ghostLeft.scale(75,75);
+        ghostRight.scale(75,75);
+        
         ghostLeft.mirrorVertically();
         ghostLeft.mirrorHorizontally();
+        
+        ghostRight.mirrorVertically();
+        
         setImage(ghostLeft);
         
     }
@@ -32,13 +39,6 @@ public class Ghost extends Actor
         }
         
         follow();
-        
-        if(isTouching(Character.class)){
-            
-            removeTouching(Character.class);
-            world.gameOver();
-            
-        }
     }
     
     public void follow(){
@@ -48,21 +48,28 @@ public class Ghost extends Actor
         
         List players = world.getObjects(Character.class);
         
-        if(players.size() == 1){
+        if(!players.isEmpty()){
             Actor player = (Actor) players.get(0);
             
             x = player.getX();
             y = player.getY();
             
+            if(x> getX()){
+                setImage(ghostRight);
+            } 
+            else {
+                setImage(ghostLeft);
+            }
+            
             move(4);
             turnTowards(x,y);
-            
-            
         }
         
-        
-        
-    }
+        if(isTouching(Character.class)){
+            removeTouching(Character.class);
+            world.gameOver();
+        }
     
+    }   
     
 }
