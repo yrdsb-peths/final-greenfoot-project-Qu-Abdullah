@@ -27,7 +27,7 @@ public class MyWorld extends World
         Character character = new Character();
         addObject(character, getWidth()/2, getHeight()/2);
         
-        Label scoreLabel = new Label(0,60);
+        scoreLabel = new Label(0,60);
         addObject(scoreLabel, getWidth()/2, 50);        
     }
 
