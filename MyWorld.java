@@ -11,6 +11,8 @@ public class MyWorld extends World
     int counter = 0;
     double amplifier = 1.00;
     int score;
+    
+    Label scoreLabel;
 
     /**
      * Constructor for objects of class MyWorld.
@@ -24,8 +26,9 @@ public class MyWorld extends World
         
         Character character = new Character();
         addObject(character, getWidth()/2, getHeight()/2);
-
-                
+        
+        Label scoreLabel = new Label(0,60);
+        addObject(scoreLabel, getWidth()/2, 50);        
     }
 
     
@@ -60,15 +63,16 @@ public class MyWorld extends World
         }
     }
     
+    public void increaseScore(){
+        score++;
+        scoreLabel.setValue(score);
+    }
+    
     public void gameOver(){
         Label gameOver = new Label("Game Over",100);
         
         addObject(gameOver, getWidth()/2, getHeight()/2);
         
         Greenfoot.stop();
-    }
-    
-    public void increaseScore(){
-        score++;
     }
 }
