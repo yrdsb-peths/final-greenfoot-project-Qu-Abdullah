@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Character here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Qureshi 
+ * @17 January 2023
  */
 public class Character extends Actor
 {
@@ -15,17 +15,19 @@ public class Character extends Actor
     
     SimpleTimer animationTimer = new SimpleTimer();
     
+    private int clickCount = 0;
+    
     public Character(){
         
         for(int i = 0; i < rightView.length; i++){
             rightView[i] = new GreenfootImage("images/Pixel_Character/Character" + i +".png");
-            rightView[i].scale(150,100);
+            rightView[i].scale(70,80);
         }
         
         for(int i = 0; i < leftView.length; i++){
             leftView[i] = new GreenfootImage("images/Pixel_Character/Character" + i +".png");
             leftView[i].mirrorHorizontally();
-            leftView[i].scale(150,100);
+            leftView[i].scale(70,70);
         }
         
         animationTimer.mark();
@@ -41,14 +43,21 @@ public class Character extends Actor
     
     public void act()
     {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
         facing = trackMouse();
         
         
         if(Greenfoot.isKeyDown("space")){
             setLocation(getX(),getY()-6);
+            animate();
         }
         setLocation(getX(), getY()+4);
-        animate();
+        
+        if(mouse != null)
+        
+        if(mouse.getButton() == 1){
+            shoot();            
+        }
         
         
     }
@@ -68,6 +77,7 @@ public class Character extends Actor
             else{
                 return "Left";
             }
+            
  
         }
         
@@ -92,4 +102,20 @@ public class Character extends Actor
             imageIndex = (imageIndex + 1) % leftView.length;
         }
     }
+    
+    public void shoot(){
+        MyWorld world = (MyWorld) getWorld();
+        
+        if(Greenfoot.mouseClicked(null)){
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            int x = mouse.getX();
+            int y = mouse.getY();
+            
+            Bullet bullet = new Bullet();
+            world.addObject(bullet, getX(), getY());
+            bullet.turnTowards(x,y);
+        }
+    }
+    
+    
 }
