@@ -28,7 +28,8 @@ public class Bullet extends Actor
             
             if(isTouching(Ghost.class)){
             
-                removeTouching(Ghost.class);    
+                removeTouching(Ghost.class); 
+                world.increaseScore();
             }
             
             world.removeObject(this);

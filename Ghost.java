@@ -48,28 +48,27 @@ public class Ghost extends Actor
         
         List players = world.getObjects(Character.class);
         
-        if(!players.isEmpty()){
+        if(!players.isEmpty()){ 
             Actor player = (Actor) players.get(0);
-            
+        
             x = player.getX();
             y = player.getY();
+            move(4);
+            turnTowards(x,y);
             
             if(x> getX()){
                 setImage(ghostRight);
-            } 
-            else {
-                setImage(ghostLeft);
-            }
-            
-            move(4);
-            turnTowards(x,y);
+                } 
+                else {
+                    setImage(ghostLeft);
+                }
         }
         
         if(isTouching(Character.class)){
             removeTouching(Character.class);
             world.gameOver();
         }
-    
+        
     }   
     
 }
