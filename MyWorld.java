@@ -36,19 +36,24 @@ public class MyWorld extends World
             Obstacles obstacle = new Obstacles();
             Ghost ghost = new Ghost();
             
-            addObject(obstacle, getWidth(), getHeight()/2 + obstacle.getImage().getHeight() - Greenfoot.getRandomNumber(200));
-            addObject(ghost, getWidth(), Greenfoot.getRandomNumber(400));
+            addObject(obstacle, getWidth(), getHeight()/2 + obstacle.getImage().getHeight() - Greenfoot.getRandomNumber(300));
+            
+            int randomSpawn = Greenfoot.getRandomNumber(2);
+            if(randomSpawn == 1){
+                addObject(ghost, getWidth(), Greenfoot.getRandomNumber(400));
+            }
+            else {
+                addObject(ghost, 0, Greenfoot.getRandomNumber(400));
+            }
             
             counter = 0;
             score++;
             
-            if(score == 10){
+            if(score % 10 == 0){
                 
-                if(amplifier > 0.75){
+                if(amplifier > 0.50){
                     amplifier -=0.25;
                 }
-                
-                score = 0;
                 
             }
             
@@ -61,5 +66,9 @@ public class MyWorld extends World
         addObject(gameOver, getWidth()/2, getHeight()/2);
         
         Greenfoot.stop();
+    }
+    
+    public void increaseScore(){
+        score++;
     }
 }
