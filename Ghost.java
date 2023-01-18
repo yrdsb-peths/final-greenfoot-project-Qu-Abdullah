@@ -3,8 +3,8 @@ import java.util.List;
 /**
  * Write a description of class BreadBoy here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Qureshi 
+ * @17 January 2023
  */
 public class Ghost extends Actor
 {
@@ -17,6 +17,7 @@ public class Ghost extends Actor
     
     public Ghost(){
         ghostLeft.scale(75,75);
+        ghostLeft.mirrorVertically();
         ghostLeft.mirrorHorizontally();
         setImage(ghostLeft);
         
@@ -24,11 +25,20 @@ public class Ghost extends Actor
     
     public void act()
     {
+        MyWorld world = (MyWorld) getWorld();
+        
         if(isTouching(Bullet.class)){
-            MyWorld world = (MyWorld) getWorld();
             world.removeObject(this);
         }
+        
         follow();
+        
+        if(isTouching(Character.class)){
+            
+            removeTouching(Character.class);
+            world.gameOver();
+            
+        }
     }
     
     public void follow(){
@@ -44,8 +54,9 @@ public class Ghost extends Actor
             x = player.getX();
             y = player.getY();
             
+            move(4);
             turnTowards(x,y);
-            move(2);
+            
             
         }
         
