@@ -36,7 +36,7 @@ public class MyWorld extends World
             Obstacles obstacle = new Obstacles();
             Ghost ghost = new Ghost();
             
-            addObject(obstacle, getWidth(), getHeight()/2 + obstacle.getImage().getHeight() - Greenfoot.getRandomNumber(400));
+            addObject(obstacle, getWidth(), getHeight()/2 + obstacle.getImage().getHeight() - Greenfoot.getRandomNumber(200));
             addObject(ghost, getWidth(), Greenfoot.getRandomNumber(400));
             
             counter = 0;

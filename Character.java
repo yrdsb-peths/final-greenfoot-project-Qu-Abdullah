@@ -59,6 +59,12 @@ public class Character extends Actor
             shoot();            
         }
         
+        if(getY() > 360){
+            MyWorld world = (MyWorld) getWorld();
+            
+            world.gameOver();
+        }
+        
         
     }
     
