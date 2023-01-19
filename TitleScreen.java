@@ -1,14 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TitleScreen here.
+ * The title screen which gives basic instructions and leads to the main world
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Qureshi
+ * @version 18 Jan 2023
  */
 public class TitleScreen extends World
 {
-
+    
     /**
      * Constructor for objects of class TitleScreen.
      * 
@@ -18,15 +18,13 @@ public class TitleScreen extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         prepare();
+    
     }
 
     public void act(){
-        if(Greenfoot.isKeyDown("space")){
-            MyWorld gameWorld = new MyWorld();
-
-            Greenfoot.setWorld(gameWorld);
-        }
+        
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -45,8 +43,9 @@ public class TitleScreen extends World
         label2.setLocation(315,284);
         label3.setLocation(315,302);
         label3.setLocation(320,318);
-        Label label4 = new Label("Press Space to Start...", 40);
-        addObject(label4,262,369);
-        label4.setLocation(319,367);
+
+        Button button = new Button();
+        addObject(button,298,365);
+        button.setLocation(314,370);
     }
 }

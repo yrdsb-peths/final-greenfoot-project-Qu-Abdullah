@@ -1,22 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 /**
- * Write a description of class BreadBoy here.
+ * Ghost class that follows athe Character and 
  * 
- * @Qureshi 
- * @17 January 2023
+ * @author Qureshi 
+ * @version 17 January 2023
  */
 public class Ghost extends Actor
 {
-    /**
-     * Act - do whatever the BreadBoy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    
+    //Images for the Ghost
     GreenfootImage ghostLeft = new GreenfootImage("images/Ghost.png");
     GreenfootImage ghostRight = new GreenfootImage("images/Ghost.png");
     
-    
+    /**
+     * Contructor for Ghost
+     */
     public Ghost(){
         ghostLeft.scale(75,75);
         ghostRight.scale(75,75);
@@ -30,8 +28,12 @@ public class Ghost extends Actor
         
     }
     
-    public void act()
-    {
+     /**
+     * Act - do whatever the Character wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    
+    public void act(){
         MyWorld world = (MyWorld) getWorld();
         
         if(isTouching(Bullet.class)){
@@ -41,14 +43,20 @@ public class Ghost extends Actor
         follow();
     }
     
+    /**
+     * follows the player and turns towards it.
+     */
     public void follow(){
         MyWorld world = (MyWorld) getWorld();
         int x;
         int y;
         
+        //Getting the player in the world
         List players = world.getObjects(Character.class);
         
+        //Avoiding a NullPointerException
         if(!players.isEmpty()){ 
+            
             Actor player = (Actor) players.get(0);
         
             x = player.getX();
@@ -58,10 +66,10 @@ public class Ghost extends Actor
             
             if(x> getX()){
                 setImage(ghostRight);
-                } 
-                else {
-                    setImage(ghostLeft);
-                }
+            } 
+            else{
+                setImage(ghostLeft);
+            }
         }
         
         if(isTouching(Character.class)){
