@@ -51,12 +51,13 @@ public class Ghost extends Actor
         int x;
         int y;
         
-        //Getting the player in the world
+        //Getting the player in the world.
         List players = world.getObjects(Character.class);
         
-        //Avoiding a NullPointerException
+        //Avoiding a NullPointerException.
         if(!players.isEmpty()){ 
             
+            //Getting the first (and only) player.
             Actor player = (Actor) players.get(0);
         
             x = player.getX();

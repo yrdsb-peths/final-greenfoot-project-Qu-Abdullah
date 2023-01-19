@@ -152,7 +152,13 @@ public class Character extends Actor
             int y = mouse.getY();
             
             Bullet bullet = new Bullet();
-            world.addObject(bullet, getX(), getY());
+            
+            /*Adding 20 to the Y position to make the bullet appear from the
+             * body rather than the characters face
+             */ 
+            world.addObject(bullet, getX(), getY()+20);
+            
+            
             bullet.turnTowards(x,y);
         }
     }    
