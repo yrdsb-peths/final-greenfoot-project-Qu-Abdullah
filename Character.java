@@ -1,13 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Character here.
+ * A Character class that moves according to user input.
  * 
- * @Qureshi 
- * @17 January 2023
+ * @author Qureshi 
+ * @version 17 January 2023
  */
 public class Character extends Actor
 {
+    //Shoot sound
+    GreenfootSound shootSound = new GreenfootSound("shoot.wav");
+    
+    //Frames for animation
     GreenfootImage[] rightView = new GreenfootImage[4];
     GreenfootImage[] leftView = new GreenfootImage[4];
     
@@ -16,6 +20,12 @@ public class Character extends Actor
     SimpleTimer animationTimer = new SimpleTimer();
     
     private int clickCount = 0;
+    
+    /**
+     * Constructor for Character.
+     * 
+     * Constructs a Character with arrays for the necessary animations.
+     */
     
     public Character(){
         
@@ -36,29 +46,33 @@ public class Character extends Actor
     }
     
     
-    /*
+    /**
      * Act - do whatever the Character wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
     public void act()
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
         facing = trackMouse();
         
-        
+        // Fly when spacebar is pressed        
         if(Greenfoot.isKeyDown("space")){
             setLocation(getX(),getY()-6);
             animate();
         }
+        
+        // Gravity
         setLocation(getX(), getY()+4);
         
+        // Shoot a Bullet ONCE if the left mouse button is clicked.
         if(mouse != null)
         
         if(mouse.getButton() == 1){
-            shoot();            
+            shoot();
+            shootSound.play();
         }
         
+        // End the game if the Player touches the ground
         if(getY() > 360){
             MyWorld world = (MyWorld) getWorld();
             
@@ -68,9 +82,16 @@ public class Character extends Actor
         
     }
     
+    /**
+     * Tracks the mouse's horizontal position to see whether it is behind or infront of the player.
+     * 
+     * @return a String that determines the Characters point of view.
+     */
     public String trackMouse(){
+        // Horizontal positions for the Player and the Mouse
         int xPlayer;
         int xMouse;
+        
         MouseInfo mouse = Greenfoot.getMouseInfo();
         
         if(mouse != null){
@@ -84,7 +105,6 @@ public class Character extends Actor
                 return "Left";
             }
             
- 
         }
         
         return "Right";
@@ -92,24 +112,38 @@ public class Character extends Actor
     
     int imageIndex = 0;
     
+    /**
+     * Animate the Character
+     */
     public void animate(){
+        
         if(animationTimer.millisElapsed() < 125){
+            
             return;
+            
         }
         
         animationTimer.mark();
         
         if(facing.equals("Right")){
+            
             setImage(rightView[imageIndex]);
             imageIndex = (imageIndex + 1) % rightView.length;
+            
         }
         else if(facing.equals("Left")){
+            
             setImage(leftView[imageIndex]);
             imageIndex = (imageIndex + 1) % leftView.length;
+            
         }
     }
     
+    /**
+     * Shoots a bullet in the direction of the mouse, after the left mouse button is clicked.
+     */
     public void shoot(){
+        
         MyWorld world = (MyWorld) getWorld();
         
         if(Greenfoot.mouseClicked(null)){
@@ -121,7 +155,5 @@ public class Character extends Actor
             world.addObject(bullet, getX(), getY());
             bullet.turnTowards(x,y);
         }
-    }
-    
-    
+    }    
 }
