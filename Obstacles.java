@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Obstacles here.
+ * Obstacles class that creates objects for the player to avoid
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Qureshi
+ * @version 18 Jan 2023
  */
 public class Obstacles extends Actor
 {
@@ -12,7 +12,7 @@ public class Obstacles extends Actor
     int speed = 3;
     
     public Obstacles(){
-        getImage().scale(getImage().getWidth(), 400);
+        getImage().scale(130, 400);
     }
     
     /**
@@ -23,8 +23,10 @@ public class Obstacles extends Actor
     {
         MyWorld world = (MyWorld) getWorld();
         
+        //Horizontal speed of the object.
         setLocation(getX()-speed,getY());
         
+        //ends game if the object is in contact with the player.
         if(isTouching(Character.class)){
             world.gameOver();
         }
