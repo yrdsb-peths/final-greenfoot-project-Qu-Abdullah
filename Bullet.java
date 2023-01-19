@@ -5,7 +5,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Removes itself after touching an edge or a ghost.
  * 
  * @author Qureshi
- * @version 17 January 2023
+ * @version 18 January 2023
  */
 public class Bullet extends Actor
 {

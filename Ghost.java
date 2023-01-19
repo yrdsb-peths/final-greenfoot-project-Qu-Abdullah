@@ -9,6 +9,7 @@ import java.util.List;
 public class Ghost extends Actor
 {
     //Images for the Ghost
+    //Source: http://clipart-library.com/clip-art/cute-ghost-transparent-7.htm 
     GreenfootImage ghostLeft = new GreenfootImage("images/Ghost.png");
     GreenfootImage ghostRight = new GreenfootImage("images/Ghost.png");
     
@@ -51,7 +52,12 @@ public class Ghost extends Actor
         int x;
         int y;
         
-        //Getting the player in the world.
+        /*
+         * Getting the player in the world.
+         * 
+         * Found out how to do this from the link below:
+         * Source: https://www.greenfoot.org/topics/61174/0#post_128017
+         */
         List players = world.getObjects(Character.class);
         
         //Avoiding a NullPointerException.

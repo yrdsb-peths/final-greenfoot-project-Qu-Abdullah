@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
+    //Image Source: 
+    // https://opengameart.org/content/pixel-night-city
+    
     //Lose sound
     GreenfootSound loseSound = new GreenfootSound("GameOverSound.mp3");
     

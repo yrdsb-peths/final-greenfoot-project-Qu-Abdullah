@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * A Character class that creates a playable character.
  * 
  * @author Qureshi 
- * @version 17 January 2023
+ * @version 18 January 2023
  */
 public class Character extends Actor
 {
@@ -12,6 +12,8 @@ public class Character extends Actor
     GreenfootSound shootSound = new GreenfootSound("shoot.wav");
     
     //Frames for animation
+    //Link to Original Image: https://www.pngegg.com/en/png-ygcul
+    
     GreenfootImage[] rightView = new GreenfootImage[4];
     GreenfootImage[] leftView = new GreenfootImage[4];
     

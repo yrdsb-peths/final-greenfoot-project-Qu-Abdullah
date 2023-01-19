@@ -4,7 +4,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The title screen which gives basic instructions and leads to the main world
  * 
  * @author Qureshi
- * @version 18 Jan 2023
+ * @version 19 Jan 2023
  */
 public class TitleScreen extends World
 {
@@ -47,5 +47,18 @@ public class TitleScreen extends World
         Button button = new Button();
         addObject(button,298,365);
         button.setLocation(314,370);
+        button.setLocation(289,364);
+        label2.setLocation(311,302);
+        label2.setLocation(304,303);
+        label2.setLocation(304,303);
+        label2.setLocation(299,283);
+        label.setLocation(306,257);
+        label.setLocation(308,239);
+        label2.setLocation(301,273);
+        label3.setLocation(316,310);
+        label2.setLocation(291,285);
+        label2.setLocation(281,268);
+        label2.setLocation(281,268);
+        label3.setLocation(273,304);
     }
 }
