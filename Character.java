@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * A Character class that moves according to user input.
+ * A Character class that creates a playable character.
  * 
  * @author Qureshi 
  * @version 17 January 2023

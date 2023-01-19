@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Button here.
+ * Button class that creates a button which swaps to the main world.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Qureshi
+ * @version 18 Jan 2023
  */
 public class Button extends Actor
 {

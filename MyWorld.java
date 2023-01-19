@@ -44,7 +44,7 @@ public class MyWorld extends World
     public void act(){
         
         counter++;
-        if(counter == 100*amplifier){
+        if(counter == (int) 100 * amplifier){
             
             Obstacles obstacle = new Obstacles();
             Ghost ghost = new Ghost();
@@ -58,7 +58,7 @@ public class MyWorld extends World
                 addObject(ghost, getWidth(), Greenfoot.getRandomNumber(250));
             }
             else {
-                addObject(ghost, 0, Greenfoot.getRandomNumber(400));
+                addObject(ghost, 0, Greenfoot.getRandomNumber(250));
             }
             
             counter = 0;
@@ -66,7 +66,7 @@ public class MyWorld extends World
             if(score % 10 == 0){
                 
                 if(amplifier > 0.50){
-                    amplifier -=0.05;
+                    amplifier -=0.10;
                 }
                 
             }

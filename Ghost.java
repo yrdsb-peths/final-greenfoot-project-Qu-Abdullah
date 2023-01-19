@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 /**
- * Ghost class that follows athe Character and 
+ * Ghost class that behaves as an enemy.
  * 
  * @author Qureshi 
  * @version 17 January 2023
